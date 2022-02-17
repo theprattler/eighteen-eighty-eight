@@ -69,7 +69,11 @@ const userController = {
       res.json(dbUserData);
     })
     .catch(err => res.status(400).json(err));
-  }
+  },
+
+  // CREATE new friend
+
+  // DELETE friend
 };
 
 module.exports = userController;
