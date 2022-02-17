@@ -4,6 +4,7 @@ const thoughtController = {
   // GET all thoughts
   getAllThought(req, res) {
     Thought.find({})
+    .select('-__v')
     .then(dbThoughtData => res.json(dbThoughtData))
     .catch(err => {
       console.log(err);
@@ -14,6 +15,7 @@ const thoughtController = {
   // GET single thought by id
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.thoughtId })
+    .select('-__v')
     .then(dbThoughtData => {
       if (!dbThoughtData) {
         res.status(404).json({ message: 'No thought found with this id' });
